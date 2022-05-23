@@ -1,0 +1,7 @@
+<framework>
+    <dao>dao.DaoImpl</dao>
+    <metier>metier.ImetierImpl</metier>
+</framework>
+
+
+
