@@ -1,5 +1,5 @@
-<h1 align="center">Architecture JEE et Middlewares 📚 <h1>
-<h3 align="center">Dans le tableau ci-dessous vous trouverez tous les liens vers les travaux pratiques sur lesquels j'ai travaillé</h3>  
+<h1 align="center">Architecture JEE et Middlewares 📚<h1>
+<h3>Dans le tableau ci-dessous vous trouverez tous les liens vers les travaux pratiques <br>sur lesquels j'ai travaillé</h3>  
 <table align="center">
   <tr>
     <th>Numero d'activité </th>
