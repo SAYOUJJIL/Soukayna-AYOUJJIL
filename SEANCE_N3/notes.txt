@@ -1,4 +1,0 @@
-la couche metier on l'appel generalement couche service
-LE mongodb utilise uuid 
-dans l'interface patientRepository on a utiliser long dans faite string
-DANS savepatient utliser patient.set(uuid.random)
