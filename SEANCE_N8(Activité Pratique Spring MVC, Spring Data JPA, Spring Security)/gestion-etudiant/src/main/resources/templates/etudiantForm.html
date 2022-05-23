@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="template1">
+    <head>
+        <meta charset="UTF-8" >
+        <title>Gestion Etudiants | AYOUJJIL Soukayna</title>
+        <link rel="stylesheet" href="/webjars/bootstrap/5.1.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>    </head>
+    <body>
+        <div layout:fragment="content1">
+            <div class="container-fluid">
+                <br>
+                <div class="card shadow mb-4">
+                    <div class="card-header py-2">
+                        <h4 class="m-0 font-weight-bold text-primary">Ajouter étudiant</h4>
+                    </div>
+                    <div class="card-body" >
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <img src="../static/images/Set_of_programmers_02_01.jpg" th:src="@{/images/Set_of_programmers_02_01.jpg}" width="600px">
+                            </div>
+                            <div class="col-md-6">
+                                <form method="post" th:action="@{/save}">
+                                    <div>
+                                        <label>Nom</label>
+                                        <input class="form-control" type="text" name="nom" th:value="${etudiant.nom}">
+                                        <span class="text-danger" th:errors="${etudiant.nom}"></span>
+                                    </div>
+                                    <div >
+                                        <label>Prénom</label>
+                                        <input class="form-control" type="text" name="prenom" th:value="${etudiant.prenom}">
+                                        <span  class="text-danger" th:errors="${etudiant.prenom}"></span>
+                                    </div>
+                                    <div>
+                                        <label >Email</label>
+                                        <input class="form-control" type="email" name="email" th:value="${etudiant.email}">
+                                        <span class="text-danger" th:errors="${etudiant.email}"></span>
+                                    </div>
+                                    <div>
+                                        <label>Date naissance</label>
+                                        <input class="form-control" type="Date" name="date" th:value="${etudiant.dateNaissance}">
+                                        <span CLASS="text-dangerext" th:errors="${etudiant.dateNaissance}"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="genre">Choisir genre</label>
+                                        <select class="form-control selectpicker" th:field="*{etudiant.genre}" id="genre">
+                                            <option th:each="genre : ${T(ma.enset.gestionetudiant.entities.Genre).values()}"
+                                                    th:value="${genre}"
+                                                    th:text="${genre}">pizza
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label>regle</label>
+                                        <input   type="checkbox" name="regle" th:checked="${etudiant.regle}">
+                                        <span th:errors="${etudiant.regle}"></span>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Enregistrer</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+               </div>
+            </div>
+        </div>
+    </body>
+</html>

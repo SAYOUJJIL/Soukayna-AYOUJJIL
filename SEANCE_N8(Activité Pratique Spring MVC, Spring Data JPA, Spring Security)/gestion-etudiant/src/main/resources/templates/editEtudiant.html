@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="template1">
+<head>
+    <meta charset="UTF-8" >
+    <title>Gestion Etudiants | AYOUJJIL Soukayna</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.1.3/css/bootstrap.min.css">
+
+
+</head>
+<body>
+    <div layout:fragment="content1" class="container mt-5">
+            <div class="card card-header">
+                <h3>Modifier informations etudiant</h3>
+            </div>
+            <div class="card card-body" >
+                <form method="post" th:action="@{/save(page=${page},keyword=${keyword})}">
+                    <div>
+                        <label style="text-align: center;" >ID</label>
+                        <h2 STYLE="text-align: center"><label th:text="${etudiant.id}" STYLE="text-align: center">ID</label></h2>
+                        <input class="form-control" type="hidden" name="id" th:value="${etudiant.id}">
+                        <span class="text-danger" th:errors="${etudiant.id}"></span>
+                    </div>
+                    <div >
+                        <label >nom</label>
+                        <input class="form-control" type="text" name="nom" th:value="${etudiant.nom}">
+                        <span class="text-danger" th:errors="${etudiant.nom}"></span>
+                    </div>
+                    <div>
+                        <label >prenom</label>
+                        <input class="form-control" type="text" name="prenom" th:value="${etudiant.prenom}">
+                        <span class="text-danger" th:errors="${etudiant.prenom}"></span>
+                    </div>
+                    <div>
+                        <label >Email</label>
+                        <input class="form-control" type="email" name="email" th:value="${etudiant.email}">
+                        <span class="text-danger" th:errors="${etudiant.email}"></span>
+                    </div>
+                    <div>
+                        <label>Date naissance</label>
+                        <input class="form-control" type="Date" name="date" th:value="${etudiant.dateNaissance}">
+                        <span CLASS="text-dangerext" th:errors="${etudiant.dateNaissance}"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="genre">Choisir genre</label>
+                        <select class="form-control selectpicker" th:field="*{etudiant.genre}" id="genre">
+                            <option th:each="genre : ${T(ma.enset.gestionetudiant.entities.Genre).values()}"
+                                    th:value="${genre}"
+                                    th:text="${genre}">pizza
+                            </option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Reglé</label>
+                        <input type="checkbox" name="regle" th:checked="${etudiant.regle}">
+                        <span th:errors="${etudiant.regle}"></span>
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-primary">Enregistrer</button>
+                </form>
+            </div>
+        </div>
+</body>
+</html>

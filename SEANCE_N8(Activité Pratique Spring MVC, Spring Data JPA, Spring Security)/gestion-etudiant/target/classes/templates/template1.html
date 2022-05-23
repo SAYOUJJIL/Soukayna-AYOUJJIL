@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <meta charset="UTF-8">
+        <title>Gestion Etudiants | AYOUJJIL Soukayna</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+        <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet"/>
+        <style>
+            .bi{
+                margin-right: 10px;
+                color: white;
+            }
+            a{
+                color: white;
+            }
+        </style>
+
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-sm" style="background: #696CFF">
+            <div class="container-fluid">
+                <ul class="navbar-nav">
+                    <li class="nav-item" >
+                        <a style="color: white"  class="nav-link active" th:href="@{/index}"><span><i class="bi bi-house-door-fill"></i></span>Accueil</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav" style="color: white" >
+                    <li  class="nav-item" sec:authorize='hasAuthority("ADMIN")'><a style="color: white" class="nav-link" th:href="@{/Admin/etudiantForm}"><span><i class="bi bi-person-plus-fill"></i></span>Ajouter étudiant</a></li>
+                    <li   class="nav-item">
+                        <a  class="nav-link" href="/login" style="color: white" ><span><i class="bi bi-box-arrow-right" ></i></span>Se déconnecter</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <section layout:fragment="content1"></section>
+
+    </body>
+</html>
