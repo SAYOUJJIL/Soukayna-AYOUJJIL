@@ -1,0 +1,54 @@
+<div class="container mt-2">
+  <ng-container *ngIf="customers  | async as listCustomers; else failureOrLoadding">
+    <div class="card-header">Customers</div>
+    <div *ngIf="customersFormGroup">
+      <!--{{this.customersFormGroup.value|json}}-->
+      <form [formGroup]="customersFormGroup" (ngSubmit)="hadleSearchCustomers()" >
+        <div class="input-group mt-2" >
+          <label class="input-group-text">Keyword</label>
+          <!--stocker dans variable customersFormGroup-->
+          <input type="text" formControlName="keyword" class="form-control">
+          <button class="btn btn-primary"><i class="bi bi-search"></i> Search</button>
+        </div>
+      </form>
+    </div>
+    <div class="card-body">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let c of customers | async">
+          <td>{{c.id}}</td>
+          <td>{{c.name}}</td>
+          <td>{{c.email}}</td>
+          <td>
+            <button (click)="handelDeleteCustomer(c)" class="btn btn-danger">
+              <i class="bi bi-trash"></i> Delete
+            </button>
+          </td>
+          <td>
+            <button (click)="handelCustomerAccounts(c)" class="btn btn-success">
+              Accounts
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </ng-container>
+  <ng-template #failureOrLoadding >
+    <ng-container *ngIf="errorMessage;else loading">
+      <div class="alert-danger">
+        {{errorMessage}}
+      </div>
+    </ng-container>
+    <ng-template #loading>
+      Loading ...
+    </ng-template>
+  </ng-template>
+</div>
