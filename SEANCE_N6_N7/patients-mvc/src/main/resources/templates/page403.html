@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+  <meta charset="UTF-8">
+  <title>Liste Patients</title>
+
+  <!-- Add icon library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="noise"></div>
+<div class="overlay"></div>
+<div class="terminal">
+  <h1>Error <span class="errorcode">403</span></h1>
+  <p class="output">Accès refusé. Vous n'êtes pas autorisé à accéder à cette page sur ce serveur OU EST TEMPORAIREMENT INDISPONIBLE</p>
+  <p class="output">MERCI D'ESSAYER DE <a th:href="@{/index}">REVENIR EN ARRIÈRE</a> Ou <a th:href="@{/index}">REVENIR À LA PAGE D'ACCUEIL</a>.</p>
+  <p class="output">BONNE CHANCE.</p>
+</div>
+<!-- partial -->
+</body>
+</html>
