@@ -1,5 +1,0 @@
-les mots cles sql il faut les eviter dans attrivuts class
-exemple group ou desc
-@table permet de specifier le nom;
-si on veut faire injection avec constructeur on met pas constructeur sans parametres
-@DATA GENERE PAR DEFAUT CONSTRUCTEUR
